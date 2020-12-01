@@ -1,0 +1,188 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Kribbelekrab - KK1</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+
+		<!-- bs4 css -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"/>
+			
+		<!-- css pie -->
+		<link rel="stylesheet" href="pie.css">
+
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+		<!-- Popper JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+
+		<!-- Latest compiled JavaScript -->
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+		<!-- TensorFlow.js script -->
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"> </script>
+			
+		<!-- canvas script -->
+		<script src="fabric.js"></script>
+			
+		<!-- main script -->
+		<script src = "main.js" > </script>
+
+		<!-- main css -->
+		<link rel = "stylesheet" href="main.css" >
+
+		<!-- favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<!--		<link rel="manifest" href="site.webmanifest">-->
+		<link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+
+		<!-- Icon library -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+
+		<!-- Navbar -->
+		<div class="inner align-center text-white" id="navbar">
+			<a href="#one">Project</a>
+			<a href="#two">About the team</a>
+			<a href="#three">About the project</a>
+		</div>
+
+		<!-- Banner -->
+			<section id="banner">
+				<h1>Welcome to our project</h1>
+			</section>
+
+				<!-- One -->
+			<section id="one" class="wrapper">
+				<div class="inner">
+					<div class="row">
+					  <div class="col" style ='margin-left:100px;'>
+					<h4 id ='status' >Loading Model... </h4>	  
+					<canvas id="canvas" width="300" height="300" class="canvas" style="border:1px solid #b9bfc9;margin-top:25px;"></canvas>
+					<div class="btn-group" style = 'margin-top:40px; '>
+					<input type="range" min="5" max="20" value="10" class="slider" id="myRange" style ='margin-top:20px;'>
+					<button type="button" class="btn btn-outline-primary" onclick ='erase()' style ='margin-left:10px;' disabled>Clear</button>
+					    </div>   
+					</div>
+					  <div class="col">
+					    <section style="margin-top:120px">
+					    <ul>
+					      <li>
+					        <em id = "sym1"></em>
+					        <span id = "prob1" ></span>
+					      </li>
+					      <li>
+					        <em id = "sym2"></em>
+					        <span id = "prob2"></span>
+					      </li>
+					      <li>
+					        <em id = "sym3"></em>
+					        <span id = "prob3"></span>
+					      </li>
+					    </ul>
+					  </section>
+					</div>
+					</div> 
+				</div>
+			</section>
+        <div id="result"></div>
+		<!-- Two -->
+			<section id="two" class="wrapper special">
+				<div class="inner">
+					<header>
+						<h2 class="text-white">Our team</h2>
+						<p class="text-white">Learn more about our team</p>
+					</header>
+					<div class="flex flex-3">
+						<div class="person">
+							<div class="image round">
+								<img src="images/pic04.jpg" width="200px" alt="Dennis Boonen" />
+							</div>
+							<h3>Dennis</h3>
+							<p>Boonen</p>
+						</div>
+						<div class="person">
+							<div class="image round">
+								<img src="images/pic05.jpg" width="200px" alt="Vince Brusselaers" />
+							</div>
+							<h3>Vince</h3>
+							<p>Brusselaers</p>
+						</div>
+						<div class="person">
+							<div class="image round">
+								<img src="images/pic06.jpg" width="200px" alt="Ilias Abdelmalki" />
+							</div>
+							<h3>Ilias</h3>
+							<p>Abdelmalki</p>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		<!-- Three -->
+			<section id="three" class="wrapper special">
+				<div class="inner">
+					<header class="align-center">
+						<h2>Something more about our project</h2>
+						<p>Our story</p>
+					</header>
+					<article>
+						<header>
+							<h3>Praesent placerat magna</h3>
+						</header>
+						<p>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor lorem ipsum.</p>
+					</article>
+				</div>
+			</section>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+			<script src="pie.js"></script>
+			            <script>
+            $.ajax('mini_classes.txt', {
+                success: fileRetrieved
+            });
+                function fileRetrieved(contents) {
+                    var lines = contents.split('\n');
+                    for(var i = 0; i < lines.length; i += 1) {
+                        createListElement(lines[i]);
+                    }
+                }
+                function createListElement(text) {
+                    var into = $('ul');
+                    var el = $('<li></li>').html(text);
+                    el.appendTo(into);
+                }
+                var into = $('#result');
+
+                function fileRetrieved(contents) {
+                    var lines = contents.split('\n');
+                    for (var i = 0; i < lines.length; i += 1) {
+                        createListElement(lines[i]);
+                    }
+                }
+
+                function createListElement(text) {
+                    var el = $('<li></li>').html(text);
+                    el.appendTo(into);
+                }
+
+                var text = $('#text').html();
+                fileRetrieved(text);
+        </script>
+			<script>
+				console.log('starting');
+				start('en')
+			</script>
+	</body>
+</html>
